@@ -25,6 +25,16 @@ final class SearchParams
         return $this->params;
     }
 
+    public function getLimit() : int
+    {
+        return (int) $this->params['limit'];
+    }
+
+    public function getOffset() : int
+    {
+        return (int) $this->params['offset'];
+    }
+
     public function getQuery() : string
     {
         return $this->query;

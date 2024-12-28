@@ -67,13 +67,13 @@ final class MeilisearchExtractorTest extends TestCase
                     new Row\Entry\BooleanEntry('active', (bool) generate_random_int(0, 1))
                 ),
                 // Default limit for Meilisearch is 1000 documents: https://www.meilisearch.com/docs/reference/api/settings#pagination
-                \range(1, 999)
+                \range(1, 100)
             ),
         ), new FlowContext(Config::default()));
 
         $params = [
             'q' => '',
-            'offset' => 101,
+            'offset' => 51,
             'attributesToRetrieve' => [
                 'id',
                 'position',
@@ -85,7 +85,7 @@ final class MeilisearchExtractorTest extends TestCase
             ->transform(meilisearch_hits_to_rows())
             ->fetch();
 
-        self::assertCount(999, $results);
+        self::assertCount(49, $results);
         self::assertArrayHasKey('id', $results->first()->toArray());
         self::assertArrayHasKey('position', $results->first()->toArray());
         self::assertArrayNotHasKey('active', $results->first()->toArray());
@@ -106,7 +106,7 @@ final class MeilisearchExtractorTest extends TestCase
                     new Row\Entry\BooleanEntry('active', (bool) generate_random_int(0, 1))
                 ),
                 // Default limit for Meilisearch is 1000 documents: https://www.meilisearch.com/docs/reference/api/settings#pagination
-                \range(1, 999)
+                \range(1, 100)
             ),
         ), new FlowContext(Config::default()));
 
@@ -119,7 +119,7 @@ final class MeilisearchExtractorTest extends TestCase
             ->extract(from_meilisearch($this->meilisearchContext->clientConfig(), $params, self::INDEX_NAME))
             ->fetch();
 
-        self::assertCount(999, $results);
-        self::assertSame(999, $results->first()->toArray()['position']);
+        self::assertCount(100, $results);
+        self::assertSame(100, $results->first()->toArray()['position']);
     }
 }
