@@ -8,10 +8,9 @@ use function Flow\ETL\Adapter\Meilisearch\{from_meilisearch, meilisearch_hits_to
 use function Flow\ETL\DSL\{from_array, string_entry};
 use Flow\ETL\Adapter\Meilisearch\Tests\Context\MeilisearchContext;
 use Flow\ETL\Adapter\Meilisearch\Tests\Double\Spy\HttpClientSpy;
-use Flow\ETL\{Flow, Row, Rows};
-use PHPUnit\Framework\TestCase;
+use Flow\ETL\{Flow, Row, Rows, Tests\FlowTestCase};
 
-final class MailiSearchTest extends TestCase
+final class MailiSearchTest extends FlowTestCase
 {
     private const DESTINATION_INDEX = 'etl-test-destination-index';
 

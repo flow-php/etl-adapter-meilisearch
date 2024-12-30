@@ -7,10 +7,9 @@ namespace Flow\ETL\Adapter\Meilisearch\Tests\Integration\MeilisearchPHP;
 use function Flow\ETL\Adapter\Meilisearch\{to_meilisearch_bulk_index, to_meilisearch_bulk_update};
 use function Flow\ETL\DSL\string_entry;
 use Flow\ETL\Adapter\Meilisearch\Tests\Context\MeilisearchContext;
-use Flow\ETL\{Config, FlowContext, Row, Rows};
-use PHPUnit\Framework\TestCase;
+use Flow\ETL\{Config, FlowContext, Row, Rows, Tests\FlowTestCase};
 
-final class MeilisearchLoaderTest extends TestCase
+final class MeilisearchLoaderTest extends FlowTestCase
 {
     private const INDEX_NAME = 'etl-test-index';
 
