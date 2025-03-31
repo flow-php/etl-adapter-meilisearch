@@ -5,9 +5,9 @@ declare(strict_types=1);
 namespace Flow\ETL\Adapter\Meilisearch\Tests\Integration\MeilisearchPHP;
 
 use function Flow\ETL\Adapter\Meilisearch\{from_meilisearch, meilisearch_hits_to_rows, to_meilisearch_bulk_index};
-use function Flow\ETL\DSL\data_frame;
 use function Flow\ETL\DSL\{boolean_entry, flow_context, integer_entry};
 use function Flow\ETL\DSL\{config, rows};
+use function Flow\ETL\DSL\data_frame;
 use function Flow\ETL\DSL\{generate_random_int, string_entry};
 use Flow\ETL\Adapter\Meilisearch\Tests\Context\MeilisearchContext;
 use Flow\ETL\{Row, Tests\FlowTestCase};
